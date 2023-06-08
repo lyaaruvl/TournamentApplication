@@ -1,5 +1,4 @@
-package com.example.tournament.dao;
-
+package com.example.tournament.Dao;
 import com.example.tournament.models.User;
 import com.example.tournament.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;

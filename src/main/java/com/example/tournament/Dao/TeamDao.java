@@ -1,4 +1,4 @@
-package com.example.tournament.dao;
+package com.example.tournament.Dao;
 
 import com.example.tournament.models.Team;
 import com.example.tournament.repositories.TeamRepo;
@@ -10,9 +10,9 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class TeamDao {
-    TeamRepo teamRepo;
+    private final TeamRepo teamRepo;
 
-    public List<Team> findAll(){
+    public List<Team> findAllTeam(){
         return  teamRepo.findAll();
     }
     public Team findById(long id){

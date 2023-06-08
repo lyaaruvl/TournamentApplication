@@ -1,6 +1,6 @@
 package com.example.tournament.services;
 
-import com.example.tournament.dao.UserDao;
+import com.example.tournament.Dao.UserDao;
 import com.example.tournament.models.User;
 import com.example.tournament.models.enums.Role;
 import lombok.RequiredArgsConstructor;

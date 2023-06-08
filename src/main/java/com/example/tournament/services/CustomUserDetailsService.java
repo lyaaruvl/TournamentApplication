@@ -1,6 +1,6 @@
 package com.example.tournament.services;
 
-import com.example.tournament.dao.UserDao;
+import com.example.tournament.Dao.UserDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

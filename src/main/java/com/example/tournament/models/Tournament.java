@@ -11,12 +11,12 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "tournaments")
 @Data
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class Tournament {
 
     @Id

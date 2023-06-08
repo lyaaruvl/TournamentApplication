@@ -1,8 +1,8 @@
 package com.example.tournament.services;
 
-import com.example.tournament.dao.TeamDao;
-import com.example.tournament.dao.TournamentDao;
-import com.example.tournament.dao.UserDao;
+import com.example.tournament.Dao.TeamDao;
+import com.example.tournament.Dao.TournamentDao;
+import com.example.tournament.Dao.UserDao;
 import com.example.tournament.exel.ExcelExporter;
 import com.example.tournament.models.Team;
 import com.example.tournament.models.Tournament;
@@ -33,7 +33,7 @@ public class TeamService {
     }
 
     public List<Team> getAllTeams() {
-        return teamDao.findAll();
+        return teamDao.findAllTeam();
     }
 
     public Team getById(Long id) {
@@ -41,7 +41,7 @@ public class TeamService {
     }
 
     public void exportTeams(String filePath) {
-        List<Team> teams = teamDao.findAll();
+        List<Team> teams = teamDao.findAllTeam();
 
         ExcelExporter excelExporter = new ExcelExporter();
         try {

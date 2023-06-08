@@ -1,7 +1,7 @@
 package com.example.tournament.services;
 
-import com.example.tournament.dao.TeamDao;
-import com.example.tournament.dao.TournamentDao;
+import com.example.tournament.Dao.TeamDao;
+import com.example.tournament.Dao.TournamentDao;
 import com.example.tournament.models.Team;
 import com.example.tournament.models.Tournament;
 import lombok.RequiredArgsConstructor;

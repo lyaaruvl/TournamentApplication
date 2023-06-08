@@ -1,6 +1,4 @@
-package com.example.tournament.dao;
-
-import com.example.tournament.models.Team;
+package com.example.tournament.Dao;
 import com.example.tournament.models.Tournament;
 import com.example.tournament.repositories.TourRepo;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +9,7 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class TournamentDao {
-    TourRepo tourRepo;
+    private final TourRepo tourRepo;
 
     public List<Tournament> findAll(){
         return tourRepo.findAll();
