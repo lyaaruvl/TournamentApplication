@@ -36,10 +36,12 @@ public class UserServiceTest {
     public void init() {
         MockitoAnnotations.openMocks(this);
         userRepository = Mockito.mock(UserRepository.class);
+        TournamentDao tournamentDao = Mockito.mock(TournamentDao.class);
+        TeamDao teamDao = Mockito.mock(TeamDao.class);
         //userService = new UserService(userRepository, new BCryptPasswordEncoder(8));
         userService = new UserService(new BCryptPasswordEncoder(8), new UserDao(userRepository));
-        teamService = new TeamService(new UserDao(userRepository), new TournamentDao(), new TeamDao());
-        tournamentService = new TournamentService(new TeamDao(), new TournamentDao());
+        teamService = new TeamService(new UserDao(userRepository), tournamentDao, teamDao);
+        tournamentService = new TournamentService(teamDao, tournamentDao);
         teamRepo = Mockito.mock(TeamRepo.class);
         tourRepo = Mockito.mock(TourRepo.class);
     }
