@@ -1,12 +1,12 @@
 package com.example.tournament.services;
 
+import com.example.tournament.dao.TeamDao;
+import com.example.tournament.dao.TournamentDao;
+import com.example.tournament.dao.UserDao;
 import com.example.tournament.exel.ExcelExporter;
 import com.example.tournament.models.Team;
 import com.example.tournament.models.Tournament;
 import com.example.tournament.models.User;
-import com.example.tournament.repositories.TeamRepo;
-import com.example.tournament.repositories.TourRepo;
-import com.example.tournament.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,34 +16,32 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class TeamService {
-
-    private final UserService userService;
-    private final TeamRepo teamRepository;
-    private final TourRepo tournamentRepository;
-    private final UserRepository userRepository;
+    private final UserDao userDao;
+    private final TournamentDao tournamentDao;
+    private final TeamDao teamDao;
 
     public List<User> getAllUsers() {
-        return userRepository.findAll();
+        return userDao.findAll();
     }
 
     public List<Tournament> getAllTournaments() {
-        return tournamentRepository.findAll();
+        return tournamentDao.findAll();
     }
 
     public Team saveTeam(Team team) {
-        return teamRepository.save(team);
+        return teamDao.save(team);
     }
 
     public List<Team> getAllTeams() {
-        return teamRepository.findAll();
+        return teamDao.findAll();
     }
 
     public Team getById(Long id) {
-        return teamRepository.findById(id).orElseThrow(() -> new RuntimeException("Team not found"));
+        return teamDao.findById(id);
     }
 
     public void exportTeams(String filePath) {
-        List<Team> teams = teamRepository.findAll();
+        List<Team> teams = teamDao.findAll();
 
         ExcelExporter excelExporter = new ExcelExporter();
         try {

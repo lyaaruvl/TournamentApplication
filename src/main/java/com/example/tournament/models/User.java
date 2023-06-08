@@ -1,6 +1,7 @@
 package com.example.tournament.models;
 
 import com.example.tournament.models.enums.Role;
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,6 +13,7 @@ import java.util.*;
 @Entity
 @Table(name = "users")
 @Data
+@Builder
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
