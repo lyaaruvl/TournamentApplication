@@ -26,6 +26,11 @@ public class AdminController {
         return "admin";
     }
 
+    @PostMapping("/admin/user/edit")
+    public String userEdit(@RequestParam("userId") User user, @RequestParam Map<String, String> form) {
+        userService.changeUserRoles(user, form);
+        return "redirect:/admin";
+    }
 
     @GetMapping("/admin/user/edit/{user}")
     public String userEdit(@PathVariable("user") User user, Model model) {
@@ -34,9 +39,4 @@ public class AdminController {
         return "user-edit";
     }
 
-    @PostMapping("/admin/user/edit")
-    public String userEdit(@RequestParam("userId") User user, @RequestParam Map<String, String> form) {
-        userService.changeUserRoles(user, form);
-        return "redirect:/admin";
-    }
 }

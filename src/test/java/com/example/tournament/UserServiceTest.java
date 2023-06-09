@@ -38,7 +38,6 @@ public class UserServiceTest {
         userRepository = Mockito.mock(UserRepository.class);
         TournamentDao tournamentDao = Mockito.mock(TournamentDao.class);
         TeamDao teamDao = Mockito.mock(TeamDao.class);
-        //userService = new UserService(userRepository, new BCryptPasswordEncoder(8));
         userService = new UserService(new BCryptPasswordEncoder(8), new UserDao(userRepository));
         teamService = new TeamService(new UserDao(userRepository), tournamentDao, teamDao);
         tournamentService = new TournamentService(teamDao, tournamentDao);
