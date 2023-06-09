@@ -26,19 +26,19 @@ public class TournamentController {
     public String getTournaments(Model model) {
         List<Tournament> tournaments = tournamentService.getAllTournaments();
         model.addAttribute("tournaments", tournaments);
-        return "tournaments"; // возвращает имя шаблона FreeMarker
+        return "tournaments";
     }
     @GetMapping("/create")
     public String createTournaments(Model model) {
         List<Tournament> tournaments = tournamentService.getAllTournaments();
         model.addAttribute("tournaments", tournaments);
-        return "createTour"; // возвращает имя шаблона FreeMarker
+        return "createTour";
     }
     @GetMapping("/{id}")
     public String getTournament(@PathVariable Long id, Model model) {
         Tournament tournament = tournamentService.getTournamentById(id);
         model.addAttribute("tournament", tournament);
-        return "tour-info"; // возвращает имя шаблона FreeMarker
+        return "tour-info";
     }
 
     @PostMapping("/create")
@@ -47,11 +47,11 @@ public class TournamentController {
             model.addAttribute("errors", bindingResult.getFieldErrors());
             List<Tournament> tournaments = tournamentService.getAllTournaments();
             model.addAttribute("tournaments", tournaments);
-            return "createTour"; // возвращает имя шаблона FreeMarker
+            return "createTour";
         }
 
         tournamentService.createTournament(tournament);
-        return "redirect:/tournaments"; // После создания турнира перенаправляет на страницу со списком турниров
+        return "redirect:/tournaments";
     }
 
 }

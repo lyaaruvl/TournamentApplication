@@ -125,12 +125,6 @@ public class TeamController {
         }
     }
 
-    @GetMapping("/{id}")
-    public String showTeam(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("team", teamService.getById(id));
-        return "show_team";
-    }
-
     @GetMapping("/export")
     public void exportToExcel(HttpServletResponse response) throws IOException {
         response.setContentType("application/vnd.ms-excel");
